@@ -3,5 +3,5 @@
 *.iws
 
 *.class
-*/target/*
-*/.idea/
+**/target
+**/.idea
