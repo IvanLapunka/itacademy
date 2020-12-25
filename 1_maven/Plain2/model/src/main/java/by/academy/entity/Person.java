@@ -1,10 +1,20 @@
 package by.academy.entity;
 
-public class Person {
+import java.awt.*;
+import java.awt.print.PageFormat;
+import java.awt.print.Printable;
+import java.awt.print.PrinterException;
+import java.io.Serializable;
+
+public class Person implements Serializable {
     private Long id;
     private String name;
     private String surname;
     private int age;
+
+    public Person() {
+        
+    }
 
     public Person(Long id, String name, String surname, int age) {
         this.id = id;
@@ -44,4 +54,5 @@ public class Person {
     public void setAge(int age) {
         this.age = age;
     }
+
 }
