@@ -3,16 +3,13 @@
     <title>Login page</title>
 </head>
 <body>
-<h1 align="center">Training center login page</h1>
+<h1 align="center">Login page</h1>
 
-<form action="home" method="post">
+<form action="${pageContext.request.contextPath}/login" method="post">
     Login: <input type="text" name="param_login"/><br/>
     Password: <input type="password" name="param_password"/><br/><br/>
-
-    <center>
-        <input type="submit"/>
-        <input type="reset"/>
-    </center>
+    <input type="submit"/>
+    <input type="reset"/>
 </form>
 </body>
 </html>

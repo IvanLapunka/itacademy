@@ -5,7 +5,6 @@ import by.academy.entity.Teacher;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
 
 public class PersonRepositoryInMemory implements PersonRepository{
     private static volatile PersonRepositoryInMemory instance;
@@ -30,9 +29,9 @@ public class PersonRepositoryInMemory implements PersonRepository{
 
     private List<Teacher> initModel() {
         return List.of(
-                new Teacher(1L, "Petr", "Petrov", 40),
-                new Teacher(2L, "Sidr", "Sidorov", 45),
-                new Teacher(3L, "Ivan", "Ivanov", 50)
+                new Teacher("Petr", "Petrov", 40),
+                new Teacher("Sidr", "Sidorov", 45),
+                new Teacher("Ivan", "Ivanov", 50)
         );
     }
 

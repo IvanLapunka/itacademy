@@ -7,6 +7,9 @@ import java.awt.print.PrinterException;
 import java.io.Serializable;
 
 public class Person implements Serializable {
+
+    private static long maxId = 0;
+
     private Long id;
     private String name;
     private String surname;
@@ -16,8 +19,8 @@ public class Person implements Serializable {
         
     }
 
-    public Person(Long id, String name, String surname, int age) {
-        this.id = id;
+    public Person(String name, String surname, int age) {
+        this.id = ++maxId;
         this.name = name;
         this.surname = surname;
         this.age = age;

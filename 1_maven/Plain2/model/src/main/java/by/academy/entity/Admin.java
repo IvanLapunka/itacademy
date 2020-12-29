@@ -10,8 +10,8 @@ public class Admin extends Person{
         marks = new ArrayList<>();
     }
 
-    public Admin(Long id, String name, String surname, int age) {
-        super(id, name, surname, age);
+    public Admin(String name, String surname, int age) {
+        super(name, surname, age);
     }
 
     public Admin() {

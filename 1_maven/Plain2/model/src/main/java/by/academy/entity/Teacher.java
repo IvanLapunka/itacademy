@@ -1,7 +1,10 @@
 package by.academy.entity;
 
 public class Teacher extends Person{
-    public int getSalary() {
+
+    private double salary;
+
+    public double getSalary() {
         return salary;
     }
 
@@ -9,18 +12,16 @@ public class Teacher extends Person{
         this.salary = salary;
     }
 
-    private int salary;
-
-    public Teacher(Long id, String name, String surname, int age) {
-        super(id, name, surname, age);
+    public Teacher(String name, String surname, int age) {
+        super(name, surname, age);
     }
 
     public Teacher() {
 
     }
 
-    public Teacher(Long id, String name, String surname, int age, int salary) {
-        super(id, name, surname, age);
+    public Teacher(String name, String surname, int age, double salary) {
+        super(name, surname, age);
         this.salary = salary;
     }
 }
