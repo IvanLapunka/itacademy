@@ -8,8 +8,8 @@
     <jsp:include page="inline/menu.jsp"></jsp:include>
     <h3>Home Page</h3>
     <p>
-        <a href="${pageContext.request.contextPath}/averagesalary">
-            Average Salary for amount of month
+        <a href="${pageContext.request.contextPath}/average-salary">
+            Average salary of teachers
         </a>
     </p>
     <p>

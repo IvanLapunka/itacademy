@@ -29,9 +29,9 @@ public class PersonRepositoryInMemory implements PersonRepository{
 
     private List<Teacher> initModel() {
         return List.of(
-                new Teacher("Petr", "Petrov", 40),
-                new Teacher("Sidr", "Sidorov", 45),
-                new Teacher("Ivan", "Ivanov", 50)
+                new Teacher("Petr", "Petrov", 40, 1200),
+                new Teacher("Sidr", "Sidorov", 45, 1300),
+                new Teacher("Ivan", "Ivanov", 50, 1400)
         );
     }
 
