@@ -26,8 +26,10 @@ public class Login extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        String login = getServletConfig().getInitParameter("login");
-        String password = getServletConfig().getInitParameter("password");
+//        String login = getServletConfig().getInitParameter("login");
+//        String password = getServletConfig().getInitParameter("password");
+        String login = getServletContext().getInitParameter("login");
+        String password = getServletContext().getInitParameter("password");
         ac = new AdminCredentials(login, password);
     }
 

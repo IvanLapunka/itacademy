@@ -29,7 +29,6 @@ public class EmployeeManager extends HttpServlet {
         String surname = req.getParameter("param_surname");
         int age = Integer.parseInt((String)req.getParameter("param_age"));
         Double salary = Double.parseDouble(req.getParameter("param_salary"));
-
         Teacher teacher = new Teacher(name, surname, age, salary);
         repository.save(teacher);
         resp.sendRedirect(req.getContextPath() + "/employeeinsertion");
