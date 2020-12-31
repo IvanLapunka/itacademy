@@ -25,17 +25,25 @@ public class AuthenticationFilter extends AbstractFilter {
     @Override
     public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain filterChain) throws IOException, ServletException {
         HttpServletRequest req = (HttpServletRequest) servletRequest;
+        HttpServletResponse resp = (HttpServletResponse) servletResponse;
         HttpSession session = req.getSession();
         String login = servletRequest.getParameter("param_login");
         String password = servletRequest.getParameter("param_password");
         LoginInfo loginInfo = (LoginInfo) session.getAttribute("loginInfo");
-        if (!(login == null && password == null || loginInfo != null)) {
-            log.info("Authentication Login: {}", login);
-            if (!(credencials.login.equals(login) && credencials.password.equals(password))) {
-                ((HttpServletResponse) servletResponse).sendRedirect(req.getContextPath() + "/index.jsp");
+        if (loginInfo == null) {
+            if ((login == null && password == null
+                    && !"/index.jsp".equals(req.getServletPath()))) {
+                resp.sendRedirect(req.getContextPath() + "/index.jsp");
                 return;
-            } else {
-                session.setAttribute("loginInfo", new LoginInfo(login));
+            } else if (login != null && password != null) {
+                log.info("Authentication Login: {}", login);
+                if (!(credencials.login.equals(login) && credencials.password.equals(password))) {
+                    resp.sendRedirect(req.getContextPath() + "/index.jsp");
+                    return;
+                } else {
+                    session.setAttribute("loginInfo", new LoginInfo(login));
+                    session.setMaxInactiveInterval(10);
+                }
             }
         }
         filterChain.doFilter(servletRequest, servletResponse);
