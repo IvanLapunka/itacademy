@@ -18,6 +18,7 @@
         <module>main</module>
         <module>model</module>
         <module>util</module>
+        <module>repository2</module>
     </modules>
 
     <dependencyManagement>
