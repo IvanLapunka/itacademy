@@ -25,12 +25,17 @@ public class EmployeeManager extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String name = req.getParameter("param_name");
-        String surname = req.getParameter("param_surname");
-        int age = Integer.parseInt((String)req.getParameter("param_age"));
-        Double salary = Double.parseDouble(req.getParameter("param_salary"));
-        Teacher teacher = new Teacher(name, surname, age, salary);
-        repository.save(teacher);
+        try {
+            String name = req.getParameter("param_name");
+            String surname = req.getParameter("param_surname");
+            int age = Integer.parseInt((String) req.getParameter("param_age"));
+            Double salary = Double.parseDouble(req.getParameter("param_salary"));
+            Teacher teacher = new Teacher(name, surname, age, salary);
+            repository.save(teacher);
+        } catch (NumberFormatException e) {
+            //log.
+        }
+
         resp.sendRedirect(req.getContextPath() + "/employeeinsertion");
     }
 }
