@@ -4,12 +4,21 @@
 </head>
 <body>
 <h1 align="center">Login page</h1>
-
-<form action="${pageContext.request.contextPath}/login" method="post">
-    Login: <input type="text" name="param_login"/><br/>
-    Password: <input type="password" name="param_password"/><br/><br/>
-    <input type="submit"/>
-    <input type="reset"/>
+<form method="POST" action='${pageContext.request.contextPath}/login' >
+    <table border="0" cellspacing="5">
+        <tr>
+            <th align="right">Login:</th>
+            <td align="left"><input type="text" name="param_login"></td>
+        </tr>
+        <tr>
+            <th align="right">Password:</th>
+            <td align="left"><input type="password" name="param_password"></td>
+        </tr>
+        <tr>
+            <td align="right"><input type="submit" value="Log In"></td>
+            <td align="left"><input type="reset"></td>
+        </tr>
+    </table>
 </form>
 </body>
 </html>

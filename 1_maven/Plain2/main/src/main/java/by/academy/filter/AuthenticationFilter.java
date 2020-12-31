@@ -13,6 +13,7 @@ import java.io.IOException;
 
 public class AuthenticationFilter extends AbstractFilter {
     private AdminCredentials credencials;
+    private int sessionTimeOut;
     private static final Logger log = LoggerFactory.getLogger(AuthenticationFilter.class);
 
     @Override
@@ -20,6 +21,12 @@ public class AuthenticationFilter extends AbstractFilter {
         String login = filterConfig.getServletContext().getInitParameter("login");
         String password = filterConfig.getServletContext().getInitParameter("password");
         credencials = new AdminCredentials(login, password);
+        try {
+            int timeOut = Integer.parseInt(filterConfig.getServletContext().getInitParameter("sessionTimeOut"));
+            sessionTimeOut = timeOut;
+        } catch (NumberFormatException e){
+            sessionTimeOut = 30;
+        }
     }
 
     @Override
@@ -42,7 +49,7 @@ public class AuthenticationFilter extends AbstractFilter {
                     return;
                 } else {
                     session.setAttribute("loginInfo", new LoginInfo(login));
-                    session.setMaxInactiveInterval(10);
+                    session.setMaxInactiveInterval(sessionTimeOut);
                 }
             }
         }
