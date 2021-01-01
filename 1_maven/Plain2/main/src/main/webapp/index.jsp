@@ -19,6 +19,12 @@
             <td align="left"><input type="reset"></td>
         </tr>
     </table>
+    <p>
+        <% String message = (String)request.getAttribute("error_message");
+            if (message == null) {message = "";}
+        %>
+        <span style="color: red;"><% out.println(message) ;%></span>
+    </p>
 </form>
 </body>
 </html>

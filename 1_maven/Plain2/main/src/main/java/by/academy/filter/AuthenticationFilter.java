@@ -45,7 +45,10 @@ public class AuthenticationFilter extends AbstractFilter {
             } else if (login != null && password != null) {
                 log.info("Authentication Login: {}", login);
                 if (!(credencials.login.equals(login) && credencials.password.equals(password))) {
-                    resp.sendRedirect(req.getContextPath() + "/index.jsp");
+                    RequestDispatcher requestDispatcher = req.getRequestDispatcher("/loginPage");
+//                    resp.sendRedirect(req.getContextPath() + "/index.jsp");
+                    req.setAttribute("error_message", "Login or password is incorrect.");
+                    requestDispatcher.forward(req, resp);
                     return;
                 } else {
                     session.setAttribute("loginInfo", new LoginInfo(login));
