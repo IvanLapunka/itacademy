@@ -40,14 +40,15 @@ public class AuthenticationFilter extends AbstractFilter {
         if (loginInfo == null) {
             if ((login == null && password == null
                     && !"/loginpage".equals(req.getServletPath()))) {
-                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/loginpage");
-                requestDispatcher.forward(req, resp);
+               resp.sendRedirect(req.getContextPath() + "/loginpage");
+                return;
             } else if (login != null && password != null) {
                 log.info("Authentication Login: {}", login);
                 if (!(credencials.login.equals(login) && credencials.password.equals(password))) {
                     RequestDispatcher requestDispatcher = req.getRequestDispatcher("/loginpage");
                     req.setAttribute("error_message", "Login or password is incorrect.");
                     requestDispatcher.forward(req, resp);
+                    return;
                 } else {
                     session.setAttribute("loginInfo", new LoginInfo(login));
                     session.setMaxInactiveInterval(sessionTimeOut);
