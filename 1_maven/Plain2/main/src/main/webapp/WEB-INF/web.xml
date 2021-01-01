@@ -101,7 +101,7 @@
 
     <servlet-mapping>
         <servlet-name>LoginPage</servlet-name>
-        <url-pattern>/loginPage</url-pattern>
+        <url-pattern>/loginpage</url-pattern>
     </servlet-mapping>
 
 </web-app>

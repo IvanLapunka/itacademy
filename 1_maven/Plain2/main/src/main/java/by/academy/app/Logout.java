@@ -16,6 +16,6 @@ public class Logout extends HttpServlet {
         HttpSession session = req.getSession();
         session.setAttribute("loginInfo", null);
         session.setMaxInactiveInterval(0);
-        resp.sendRedirect(req.getContextPath() + "/index.jsp");
+        resp.sendRedirect(req.getContextPath() + "/loginpage");
     }
 }

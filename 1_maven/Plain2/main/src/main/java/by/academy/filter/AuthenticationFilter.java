@@ -39,17 +39,15 @@ public class AuthenticationFilter extends AbstractFilter {
         LoginInfo loginInfo = (LoginInfo) session.getAttribute("loginInfo");
         if (loginInfo == null) {
             if ((login == null && password == null
-                    && !"/index.jsp".equals(req.getServletPath()))) {
-                resp.sendRedirect(req.getContextPath() + "/index.jsp");
-                return;
+                    && !"/loginpage".equals(req.getServletPath()))) {
+                RequestDispatcher requestDispatcher = req.getRequestDispatcher("/loginpage");
+                requestDispatcher.forward(req, resp);
             } else if (login != null && password != null) {
                 log.info("Authentication Login: {}", login);
                 if (!(credencials.login.equals(login) && credencials.password.equals(password))) {
-                    RequestDispatcher requestDispatcher = req.getRequestDispatcher("/loginPage");
-//                    resp.sendRedirect(req.getContextPath() + "/index.jsp");
+                    RequestDispatcher requestDispatcher = req.getRequestDispatcher("/loginpage");
                     req.setAttribute("error_message", "Login or password is incorrect.");
                     requestDispatcher.forward(req, resp);
-                    return;
                 } else {
                     session.setAttribute("loginInfo", new LoginInfo(login));
                     session.setMaxInactiveInterval(sessionTimeOut);
