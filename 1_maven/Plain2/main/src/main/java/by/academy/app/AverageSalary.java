@@ -18,7 +18,7 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-@WebServlet(value="/average-salary")
+@WebServlet(value="/averageSalary")
 public class AverageSalary extends HttpServlet {
     private PersonRepository rep;
 
@@ -34,7 +34,7 @@ public class AverageSalary extends HttpServlet {
         double averageSalary = Calculations.getAverageForAmountOfLastItems(salaries, salaries.size());
         req.setAttribute("averageSalary", averageSalary);
         req.setAttribute("teachers", teachers);
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/average");
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher("/average-salary");
         requestDispatcher.forward(req, resp);
     }
 

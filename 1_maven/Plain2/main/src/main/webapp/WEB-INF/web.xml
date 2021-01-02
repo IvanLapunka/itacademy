@@ -16,33 +16,7 @@
         <param-value>10</param-value>
     </context-param>
 
-    <servlet>
-        <servlet-name>HomeServlet</servlet-name>
-        <servlet-class>by.academy.app.AdminHome</servlet-class>
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>HomeServlet</servlet-name>
-        <url-pattern>/adminhome</url-pattern>
-    </servlet-mapping>
-
-    <servlet>
-        <servlet-name>LoginServlet</servlet-name>
-        <servlet-class>by.academy.app.Login</servlet-class>
-<!--        <init-param>-->
-<!--            <param-name>login</param-name>-->
-<!--            <param-value>admin</param-value>-->
-<!--        </init-param>-->
-<!--        <init-param>-->
-<!--            <param-name>password</param-name>-->
-<!--            <param-value>qwerty</param-value>-->
-<!--        </init-param>-->
-    </servlet>
-
-    <servlet-mapping>
-        <servlet-name>LoginServlet</servlet-name>
-        <url-pattern>/login</url-pattern>
-    </servlet-mapping>
+    <!-- Filters -->
 
     <filter>
         <filter-name>EncodingFilter</filter-name>
@@ -64,6 +38,8 @@
         <url-pattern>/*</url-pattern>
     </filter-mapping>
 
+    <!-- JSP -->
+
     <servlet>
         <servlet-name>AdminHome</servlet-name>
         <jsp-file>/view/adminHome.jsp</jsp-file>
@@ -81,7 +57,7 @@
 
     <servlet-mapping>
         <servlet-name>TeacherManager</servlet-name>
-        <url-pattern>/employeeinsertion</url-pattern>
+        <url-pattern>/teacher-insertion</url-pattern>
     </servlet-mapping>
 
     <servlet>
@@ -91,7 +67,7 @@
 
     <servlet-mapping>
         <servlet-name>AverageSalary</servlet-name>
-        <url-pattern>/average</url-pattern>
+        <url-pattern>/average-salary</url-pattern>
     </servlet-mapping>
 
     <servlet>

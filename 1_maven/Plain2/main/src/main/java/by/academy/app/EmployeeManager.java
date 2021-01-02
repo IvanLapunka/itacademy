@@ -33,6 +33,6 @@ public class EmployeeManager extends HttpServlet {
             //log.
         }
 
-        resp.sendRedirect(req.getContextPath() + "/employeeinsertion");
+        resp.sendRedirect(req.getContextPath() + "/teacher-insertion");
     }
 }
