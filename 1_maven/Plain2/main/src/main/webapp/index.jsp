@@ -25,6 +25,7 @@
         %>
         <span style="color: red;"><% out.println(message) ;%></span>
     </p>
+    <p>Login: admin, password: qwerty</p>
 </form>
 </body>
 </html>

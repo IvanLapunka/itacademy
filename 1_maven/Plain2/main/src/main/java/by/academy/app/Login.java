@@ -13,6 +13,6 @@ public class Login extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect(req.getContextPath() + "/adminhome");
+        resp.sendRedirect(req.getContextPath() + "/adminHome");
     }
 }

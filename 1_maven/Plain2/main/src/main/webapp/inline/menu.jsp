@@ -1,4 +1,4 @@
-<a href="${pageContext.request.contextPath}/adminhome">
+<a href="${pageContext.request.contextPath}/adminHome">
     Home
 </a>
 ||

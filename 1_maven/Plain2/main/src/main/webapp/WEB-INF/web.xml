@@ -13,7 +13,7 @@
     </context-param>
     <context-param>
         <param-name>sessionTimeOut</param-name>
-        <param-value>10</param-value>
+        <param-value>20</param-value>
     </context-param>
 
     <!-- Filters -->
@@ -47,12 +47,12 @@
 
     <servlet-mapping>
         <servlet-name>AdminHome</servlet-name>
-        <url-pattern>/adminhomejsp</url-pattern>
+        <url-pattern>/admin-home</url-pattern>
     </servlet-mapping>
 
     <servlet>
         <servlet-name>TeacherManager</servlet-name>
-        <jsp-file>/view/employeemanager.jsp</jsp-file>
+        <jsp-file>/view/teacherManager.jsp</jsp-file>
     </servlet>
 
     <servlet-mapping>
@@ -62,7 +62,7 @@
 
     <servlet>
         <servlet-name>AverageSalary</servlet-name>
-        <jsp-file>/view/averagesalary.jsp</jsp-file>
+        <jsp-file>/view/averageSalary.jsp</jsp-file>
     </servlet>
 
     <servlet-mapping>

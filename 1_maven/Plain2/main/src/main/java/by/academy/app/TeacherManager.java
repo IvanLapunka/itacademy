@@ -11,8 +11,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(value="/employeemanager")
-public class EmployeeManager extends HttpServlet {
+@WebServlet(value="/teacherManager")
+public class TeacherManager extends HttpServlet {
     private PersonRepository repository;
 
     @Override
@@ -30,9 +30,8 @@ public class EmployeeManager extends HttpServlet {
             Teacher teacher = new Teacher(name, surname, age, salary);
             repository.save(teacher);
         } catch (NumberFormatException e) {
-            //log.
+            req.setAttribute("error_message", "The you have entered wrong age or salary. Age should be the natural value, salary should be real.");
         }
-
-        resp.sendRedirect(req.getContextPath() + "/teacher-insertion");
+        req.getRequestDispatcher("/teacher-insertion").forward(req, resp);
     }
 }

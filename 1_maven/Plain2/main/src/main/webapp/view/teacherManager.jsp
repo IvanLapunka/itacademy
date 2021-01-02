@@ -6,7 +6,7 @@
 </head>
 <body>
 <jsp:include page="inline/menu.jsp"></jsp:include>
-<form method="POST" action='${pageContext.request.contextPath}/employeemanager' >
+<form method="POST" action='${pageContext.request.contextPath}/teacherManager' >
 <table>
     <tr>
         <th>
@@ -45,6 +45,10 @@
         <td align="left"><input type="reset"></td>
     </tr>
 </table>
+<% String message = (String)request.getAttribute("error_message");
+            if (message == null) {message = "";}
+%>
+<span style="color: red;"><% out.println(message) ;%></span>
 </form>
 </body>
 </html>

@@ -10,11 +10,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(value="/adminhome")
+@WebServlet(value="/adminHome")
 public class AdminHome extends HttpServlet {
     Logger log = LoggerFactory.getLogger(AdminHome.class);
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect(req.getContextPath() + "/adminhomejsp");
+        resp.sendRedirect(req.getContextPath() + "/admin-home");
     }
 }
