@@ -8,9 +8,9 @@ import java.util.Arrays;
 
 public class Main {
     public static void main(String[] args) {
-        Employee e1 = new Employee("Vasja", "Pupkin", Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8));
+        Employee e1 = new Employee("Vasja", "Pupkin", Arrays.asList(1.0, 2.0, 3.0, 4.0, 5.0, 6.0, 7.0, 8.0));
         Employee e2 = new Employee("Ivan", "Ivanov", new ArrayList<>());
-        Employee e3 = new Employee("Petr", "Petrovich", Arrays.asList(1));
+        Employee e3 = new Employee("Petr", "Petrovich", Arrays.asList(1.0));
 
         int months = 6;
         getAverageSalary(e1, months);

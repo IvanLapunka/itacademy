@@ -2,6 +2,7 @@ package by.academy.app;
 
 import by.academy.entity.Person;
 import by.academy.entity.Teacher;
+import by.academy.helpers.Calculations;
 import by.academy.repository.PersonRepository;
 import by.academy.repository.PersonRepositoryInMemory;
 
@@ -13,6 +14,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 @WebServlet(value="/average-salary")
@@ -26,8 +29,11 @@ public class AverageSalary extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        req.setAttribute("averageSalary",averageSalary());
-        req.setAttribute("teachers", getTeachers());
+        List<Teacher> teachers = getTeachers();
+        List<Double> salaries = getSalaries(teachers);
+        double averageSalary = Calculations.getAverageForAmountOfLastItems(salaries, salaries.size());
+        req.setAttribute("averageSalary", averageSalary);
+        req.setAttribute("teachers", teachers);
         RequestDispatcher requestDispatcher = req.getRequestDispatcher("/average");
         requestDispatcher.forward(req, resp);
     }
@@ -42,17 +48,11 @@ public class AverageSalary extends HttpServlet {
         return result;
     }
 
-    private double averageSalary() {
-        double salary = 0;
-        int count = 0;
-        for (Person person :
-                rep.findAll()) {
-            if (person instanceof Teacher) {
-                salary += (((Teacher) person).getSalary());
-                count++;
-            }
+    private List<Double> getSalaries(List<Teacher> teachers) {
+        List<Double> result = new LinkedList<>();
+        for(Teacher teacher: teachers) {
+            result.add(teacher.getSalary());
         }
-
-        return count > 0 ? salary / count : 0;
+        return result;
     }
 }

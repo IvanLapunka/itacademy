@@ -4,7 +4,7 @@ import java.util.List;
 public class Employee {
     private String name;
     private String surname;
-    private List<Integer> salaries;
+    private List<Double> salaries;
 
     public String getName() {
         return name;
@@ -14,11 +14,11 @@ public class Employee {
         return surname;
     }
 
-    public List<Integer> getSalaries() {
+    public List<Double> getSalaries() {
         return salaries;
     }
 
-    public Employee(String name, String surname, List<Integer> salaries) {
+    public Employee(String name, String surname, List<Double> salaries) {
         this.name = name;
         this.surname = surname;
         this.salaries = salaries;
