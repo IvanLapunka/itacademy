@@ -4,6 +4,17 @@
          xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
          http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
 
+    <context-param>
+        <param-name>breed</param-name>
+        <param-value>Gread Dane</param-value>
+    </context-param>
+
+    <listener>
+        <listener-class>
+            by.academy.listener.example.MyServletContextListener
+        </listener-class>
+    </listener>
+
     <servlet>
         <servlet-name>CH3 beer</servlet-name>
         <servlet-class>by.academy.app.Beer</servlet-class>
@@ -28,7 +39,6 @@
         <filter-name>EncodingFilter</filter-name>
         <filter-class>by.academy.filter.EncodingFilter</filter-class>
     </filter>
-
 
     <filetr-mapping>
         <filter-name>EncodingFilter</filter-name>
