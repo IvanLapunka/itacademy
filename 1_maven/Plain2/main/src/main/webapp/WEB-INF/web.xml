@@ -9,6 +9,10 @@
         <param-value>Gread Dane</param-value>
     </context-param>
 
+    <session-config>
+        <session-timeout>15</session-timeout>
+    </session-config>
+
     <listener>
         <listener-class>
             by.academy.listener.example.MyServletContextListener
