@@ -1,5 +1,6 @@
 package by.academy.app;
 
+import by.academy.constants.ServletPaths;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -15,6 +16,7 @@ public class AdminHome extends HttpServlet {
     Logger log = LoggerFactory.getLogger(AdminHome.class);
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect(req.getContextPath() + "/admin-home");
+        resp.sendRedirect(req.getContextPath() + ServletPaths.ADMIN_HOME_VIEW);
+
     }
 }

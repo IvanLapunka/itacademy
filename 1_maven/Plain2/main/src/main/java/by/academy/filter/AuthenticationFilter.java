@@ -1,5 +1,6 @@
 package by.academy.filter;
 
+import by.academy.constants.ServletPaths;
 import by.academy.helpers.AdminCredentials;
 import by.academy.helpers.LoginInfo;
 import org.slf4j.Logger;
@@ -39,13 +40,13 @@ public class AuthenticationFilter extends AbstractFilter {
         LoginInfo loginInfo = (LoginInfo) session.getAttribute("loginInfo");
         if (loginInfo == null) {
             if ((login == null && password == null
-                    && !"/loginpage".equals(req.getServletPath()))) {
-               resp.sendRedirect(req.getContextPath() + "/loginpage");
+                    && !ServletPaths.LOGIN_VIEW.equals(req.getServletPath()))) {
+                resp.sendRedirect(req.getContextPath() + ServletPaths.LOGIN_VIEW);
                 return;
             } else if (login != null && password != null) {
                 log.info("Authentication Login: {}", login);
                 if (!(credencials.login.equals(login) && credencials.password.equals(password))) {
-                    RequestDispatcher requestDispatcher = req.getRequestDispatcher("/loginpage");
+                    RequestDispatcher requestDispatcher = req.getRequestDispatcher(ServletPaths.LOGIN_VIEW);
                     req.setAttribute("error_message", "Login or password is incorrect.");
                     requestDispatcher.forward(req, resp);
                     return;

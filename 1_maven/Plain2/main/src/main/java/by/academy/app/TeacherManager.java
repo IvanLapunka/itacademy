@@ -1,5 +1,6 @@
 package by.academy.app;
 
+import by.academy.constants.ServletPaths;
 import by.academy.entity.Teacher;
 import by.academy.repository.PersonRepository;
 import by.academy.repository.PersonRepositoryInMemory;
@@ -32,6 +33,6 @@ public class TeacherManager extends HttpServlet {
         } catch (NumberFormatException e) {
             req.setAttribute("error_message", "The you have entered wrong age or salary. Age should be the natural value, salary should be real.");
         }
-        req.getRequestDispatcher("/teacher-insertion").forward(req, resp);
+        req.getRequestDispatcher(ServletPaths.TEACHER_MANAGER_VIEW).forward(req, resp);
     }
 }

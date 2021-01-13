@@ -1,6 +1,8 @@
 package by.academy.app;
 
 
+import by.academy.constants.ServletPaths;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +15,6 @@ public class Login extends HttpServlet {
 
     @Override
     protected void service(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        resp.sendRedirect(req.getContextPath() + "/adminHome");
+        resp.sendRedirect(req.getContextPath() + ServletPaths.ADMIN_HOME_CONTROLLER);
     }
 }

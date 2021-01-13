@@ -1,5 +1,7 @@
 package by.academy.app;
 
+import by.academy.constants.ServletPaths;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,6 +17,6 @@ public class Logout extends HttpServlet {
         HttpSession session = req.getSession();
         session.setAttribute("loginInfo", null);
         session.setMaxInactiveInterval(0);
-        resp.sendRedirect(req.getContextPath() + "/loginpage");
+        resp.sendRedirect(req.getContextPath() + ServletPaths.LOGIN_VIEW);
     }
 }
