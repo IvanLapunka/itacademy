@@ -1,9 +1,5 @@
 package by.academy.entity;
 
-import java.awt.*;
-import java.awt.print.PageFormat;
-import java.awt.print.Printable;
-import java.awt.print.PrinterException;
 import java.io.Serializable;
 
 public class Person implements Serializable {

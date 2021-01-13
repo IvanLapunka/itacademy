@@ -1,7 +1,8 @@
 package by.academy.filter;
 
-import javax.servlet.*;
-import java.io.IOException;
+import javax.servlet.Filter;
+import javax.servlet.FilterConfig;
+import javax.servlet.ServletException;
 
 public abstract class AbstractFilter implements Filter {
     @Override
