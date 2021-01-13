@@ -3,8 +3,6 @@
 <html>
 <body>
 The page count is:
-<%
-    out.println(Counter.getCount());
-%>
+<%= Counter.getCount() %>
 </body>
 </html>
