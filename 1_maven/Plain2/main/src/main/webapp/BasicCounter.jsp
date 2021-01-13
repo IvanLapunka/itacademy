@@ -2,7 +2,12 @@
 <html>
 <body>
 The page count is:
-<%! int counter = 0; %>
-<%= counter++ %>
+<%! int counter = 1; %>
+<%! int doubleCount() {
+        counter *= 2;
+        return counter;
+    }
+%>
+<%= doubleCount() %>
 </body>
 </html>
