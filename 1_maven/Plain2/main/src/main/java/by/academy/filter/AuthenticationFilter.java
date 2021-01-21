@@ -23,8 +23,7 @@ public class AuthenticationFilter extends AbstractFilter {
         String password = filterConfig.getServletContext().getInitParameter("password");
         credencials = new AdminCredentials(login, password);
         try {
-            int timeOut = Integer.parseInt(filterConfig.getServletContext().getInitParameter("sessionTimeOut"));
-            sessionTimeOut = timeOut;
+            sessionTimeOut = Integer.parseInt(filterConfig.getServletContext().getInitParameter("sessionTimeOut"));;
         } catch (NumberFormatException e){
             sessionTimeOut = 30;
         }
