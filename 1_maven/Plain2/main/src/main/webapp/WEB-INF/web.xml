@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="4.0" xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee
+         http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd">
+    <context-param>
+        <param-name>login</param-name>
+        <param-value>admin</param-value>
+    </context-param>
+    <context-param>
+        <param-name>password</param-name>
+        <param-value>qwerty</param-value>
+    </context-param>
+    <context-param>
+        <param-name>sessionTimeOut</param-name>
+        <param-value>20</param-value>
+    </context-param>
+
+    <!-- Filters -->
+
+    <filter>
+        <filter-name>EncodingFilter</filter-name>
+        <filter-class>by.academy.filter.EncodingFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>EncodingFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter>
+        <filter-name>AuthenticationFilter</filter-name>
+        <filter-class>by.academy.filter.AuthenticationFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>AuthenticationFilter</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <!-- JSP -->
+
+    <servlet>
+        <servlet-name>AdminHome</servlet-name>
+        <jsp-file>/view/adminHome.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AdminHome</servlet-name>
+        <url-pattern>/admin-home</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>TeacherManager</servlet-name>
+        <jsp-file>/view/teacherManager.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>TeacherManager</servlet-name>
+        <url-pattern>/teacher-insertion</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>AverageSalary</servlet-name>
+        <jsp-file>/view/averageSalary.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>AverageSalary</servlet-name>
+        <url-pattern>/average-salary</url-pattern>
+    </servlet-mapping>
+
+    <servlet>
+        <servlet-name>LoginPage</servlet-name>
+        <jsp-file>/index.jsp</jsp-file>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>LoginPage</servlet-name>
+        <url-pattern>/loginpage</url-pattern>
+    </servlet-mapping>
+
+</web-app>

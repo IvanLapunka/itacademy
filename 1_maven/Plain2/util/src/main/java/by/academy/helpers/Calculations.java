@@ -3,11 +3,11 @@ import java.util.List;
 
 public class Calculations {
 
-    public static double getAverageForAmountOfLastItems(List<Integer> list, int items) {
+    public static double getAverageForAmountOfLastItems(List<Double> list, int items) {
         if (0 == items)
             return 0;
 
-        int sum = 0;
+        double sum = 0;
         int elementens = items;
         for (int i = list.size() - 1; i >= 0; i--){
             if (elementens > 0) {
@@ -17,6 +17,6 @@ public class Calculations {
                 break;
             }
         }
-        return 1.0 * sum / items;
+        return sum / items;
     }
 }
